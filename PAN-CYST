@@ -1,0 +1,631 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled21.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyM3DeKyw0dIiksrP8O+k4Bl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Balogunhabeeb14/AirPollution-Prediction-Using-AI-and-IoT/blob/main/PAN-CYST\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 16,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Cs5tlI-aSqHm",
+        "outputId": "eddfd5db-c20b-40fd-b2e0-9140031282ff"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Diagnosis_info',\n",
+              " 'Demogra',\n",
+              " 'symptoms',\n",
+              " 'signs',\n",
+              " 'MedHist',\n",
+              " 'Meds',\n",
+              " 'Meds.pivot',\n",
+              " 'Lifestyle',\n",
+              " 'FamLife',\n",
+              " 'FamHCanc',\n",
+              " 'FamHCanc.pivot',\n",
+              " 'Blood',\n",
+              " 'Urine',\n",
+              " 'Investig-CTMRI',\n",
+              " 'Surgery',\n",
+              " 'HistolDetails',\n",
+              " 'RadioDets',\n",
+              " 'Therapy']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ],
+      "source": [
+        "# Import the data\n",
+        "import pandas as pd\n",
+        "xls = pd.ExcelFile('/content/panc_cys_gan_pl.xlsx')\n",
+        "\n",
+        "#print the names of each sheets in the excel file\n",
+        "xls.sheet_names"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#convert each and every excel sheet as dataframe and assign them same name as the worksheet's name\n",
+        "xl = {}\n",
+        "sheetname_list = xls.sheet_names\n",
+        "for sheet in sheetname_list:\n",
+        "    xl[sheet] = pd.read_excel('/content/panc_cys_gan_pl.xlsx', sheet_name=sheet)"
+      ],
+      "metadata": {
+        "id": "1YPAIH3edD6Z"
+      },
+      "execution_count": 24,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xl['signs'].head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 288
+        },
+        "id": "FDZ501TvfecV",
+        "outputId": "3db501db-14b6-4d21-f3a8-99faf597a854"
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   Unnamed: 0   visit_id subject_id medical_test_jaundice  \\\n",
+              "0           0  B01P0011A   B01P0011                    No   \n",
+              "1           1  B01P0014A   B01P0014                    No   \n",
+              "2           2  B01P0014B   B01P0014                    No   \n",
+              "3           3  B01P0014C   B01P0014                    No   \n",
+              "4           4  B01P0045A   B01P0045                    No   \n",
+              "\n",
+              "  medical_test_jaundice_note medical_test_abdoMass medical_test_abdoMass_note  \\\n",
+              "0                        NaN                    No                        NaN   \n",
+              "1                        NaN                    No                        NaN   \n",
+              "2                        NaN                    No                        NaN   \n",
+              "3                        NaN                    No                        NaN   \n",
+              "4                        NaN                    No                        NaN   \n",
+              "\n",
+              "  medical_test_lymphNode medical_test_lymphNode_note  \n",
+              "0                     No                         NaN  \n",
+              "1                     No                         NaN  \n",
+              "2                     No                         NaN  \n",
+              "3                     No                         NaN  \n",
+              "4                     No                         NaN  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-6fdd6f93-6d1f-40b3-b0c3-d0f814ab3ef9\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Unnamed: 0</th>\n",
+              "      <th>visit_id</th>\n",
+              "      <th>subject_id</th>\n",
+              "      <th>medical_test_jaundice</th>\n",
+              "      <th>medical_test_jaundice_note</th>\n",
+              "      <th>medical_test_abdoMass</th>\n",
+              "      <th>medical_test_abdoMass_note</th>\n",
+              "      <th>medical_test_lymphNode</th>\n",
+              "      <th>medical_test_lymphNode_note</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>0</td>\n",
+              "      <td>B01P0011A</td>\n",
+              "      <td>B01P0011</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>1</td>\n",
+              "      <td>B01P0014A</td>\n",
+              "      <td>B01P0014</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2</td>\n",
+              "      <td>B01P0014B</td>\n",
+              "      <td>B01P0014</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>3</td>\n",
+              "      <td>B01P0014C</td>\n",
+              "      <td>B01P0014</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>4</td>\n",
+              "      <td>B01P0045A</td>\n",
+              "      <td>B01P0045</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>No</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-6fdd6f93-6d1f-40b3-b0c3-d0f814ab3ef9')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-6fdd6f93-6d1f-40b3-b0c3-d0f814ab3ef9 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-6fdd6f93-6d1f-40b3-b0c3-d0f814ab3ef9');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xl['Meds'].head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "lmmYVUbbf5pg",
+        "outputId": "c7296d47-4d93-4a01-ee78-dd62ba239f09"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   Unnamed: 0   visit_id subject_id medication medication_reason  \\\n",
+              "0           0  B01P0011A   B01P0011   Atenolol             Other   \n",
+              "1           1  B01P0014A   B01P0014        NaN               NaN   \n",
+              "2           2  B01P0014B   B01P0014        NaN               NaN   \n",
+              "3           3  B01P0014C   B01P0014        NaN               NaN   \n",
+              "4           4  B01P0045A   B01P0045  Thyroxine             Other   \n",
+              "\n",
+              "  medication_duration  \n",
+              "0             2 years  \n",
+              "1                 NaN  \n",
+              "2                 NaN  \n",
+              "3                 NaN  \n",
+              "4             4 years  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-33e5a33c-9453-4025-9b56-fc176ac7087e\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Unnamed: 0</th>\n",
+              "      <th>visit_id</th>\n",
+              "      <th>subject_id</th>\n",
+              "      <th>medication</th>\n",
+              "      <th>medication_reason</th>\n",
+              "      <th>medication_duration</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>0</td>\n",
+              "      <td>B01P0011A</td>\n",
+              "      <td>B01P0011</td>\n",
+              "      <td>Atenolol</td>\n",
+              "      <td>Other</td>\n",
+              "      <td>2 years</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>1</td>\n",
+              "      <td>B01P0014A</td>\n",
+              "      <td>B01P0014</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2</td>\n",
+              "      <td>B01P0014B</td>\n",
+              "      <td>B01P0014</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>3</td>\n",
+              "      <td>B01P0014C</td>\n",
+              "      <td>B01P0014</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>4</td>\n",
+              "      <td>B01P0045A</td>\n",
+              "      <td>B01P0045</td>\n",
+              "      <td>Thyroxine</td>\n",
+              "      <td>Other</td>\n",
+              "      <td>4 years</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-33e5a33c-9453-4025-9b56-fc176ac7087e')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-33e5a33c-9453-4025-9b56-fc176ac7087e button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-33e5a33c-9453-4025-9b56-fc176ac7087e');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "xls['Diagnosis_info'].head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 169
+        },
+        "id": "38hl_lCUXdeY",
+        "outputId": "e0b0e789-7d41-4807-ea00-cc4ddd659aab"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-12-ebe4da4fb555>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mxls\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'Diagnosis_info'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhead\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: 'ExcelFile' object is not subscriptable"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "d = {}\n",
+        "for name in xls.sheet_names:\n",
+        "    print(name)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-w-UO8wsXCn2",
+        "outputId": "3437dc4c-4c26-4840-8fba-e6e5d16d1824"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Diagnosis_info\n",
+            "Demogra\n",
+            "symptoms\n",
+            "signs\n",
+            "MedHist\n",
+            "Meds\n",
+            "Meds.pivot\n",
+            "Lifestyle\n",
+            "FamLife\n",
+            "FamHCanc\n",
+            "FamHCanc.pivot\n",
+            "Blood\n",
+            "Urine\n",
+            "Investig-CTMRI\n",
+            "Surgery\n",
+            "HistolDetails\n",
+            "RadioDets\n",
+            "Therapy\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "d = {name: pd.DataFrame() for name in xls.sheet_names}"
+      ],
+      "metadata": {
+        "id": "uy1cgl8eXNzu"
+      },
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 169
+        },
+        "id": "cNVHxozXYJnd",
+        "outputId": "653ddeb3-eb0a-4891-b469-c08915a1f07a"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-10-f6eb0cd7344d>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0msigns\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhead\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'signs' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "Diag=df1 = pd.read_excel(xls, 'Sheet1')\n",
+        "df2 = pd.read_excel(xls, 'Sheet2')"
+      ],
+      "metadata": {
+        "id": "iNNO6AusUmXB"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
