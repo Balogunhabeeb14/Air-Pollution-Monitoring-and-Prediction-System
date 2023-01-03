@@ -32,10 +32,6 @@ See some of our already published works.
 
 - https://researchprofiles.herts.ac.uk/portal/en/publications/air-pollution-prediction-using-machine-learning--a-review(66a033c0-3a9a-41b8-9887-cfa2cf048cdf).html
 
-Other works are under review.
-Please do let me know if you wish to contribute.
-
-The next project is the PASS.
 
 # PASS 
 (Pollution Avoidance Support System), the free app will give vulnerable people, including those suffering from respiratory conditions like asthma, the information they need to make informed choices about where they travel to avoid high exposure to air pollutants.
@@ -57,3 +53,7 @@ The project is being led by Professor Hafiz Alaka, Director of the Big Data Tech
 Several partners are involved in the project, including Birmingham City Council, Leeds Beckett University, Nazir Associates, and Rasuta.
 
 The app will be piloted initially in Birmingham in March 2023, before being made available across other parts of the country shortly after.
+
+Other works are under review.
+Please do let me know if you wish to contribute.
+
