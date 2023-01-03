@@ -26,6 +26,12 @@ See some of our already published works.
 
 - https://www.emerald.com/insight/content/doi/10.1108/JEDT-10-2021-0554/full/html
 
+- https://researchprofiles.herts.ac.uk/portal/en/publications/an-application-of-machine-learning-with-boruta-feature-selection-to-improve-no2-pollution-prediction(37c7b8e5-061d-4eda-9dd7-50af3f7510f3).html
+
+- https://researchprofiles.herts.ac.uk/portal/en/publications/random-forest-feature-selection-for-pm10-pollution-concentration(8f7f5ec8-666d-4154-a587-1d545d3da481).html
+
+- https://researchprofiles.herts.ac.uk/portal/en/publications/air-pollution-prediction-using-machine-learning--a-review(66a033c0-3a9a-41b8-9887-cfa2cf048cdf).html
+
 Other works are under review.
 Please do let me know if you wish to contribute.
 
