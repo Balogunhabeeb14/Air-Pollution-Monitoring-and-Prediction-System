@@ -1,25 +1,29 @@
-# AirPot
+Air-pollution kills millions every year. Like a 'pandemic in slow motion', dirty air is a plague on our health, causing 7-million deaths and many preventable illnesses like stroke, heart disease, lung cancer and acute respiratory infections worldwide each year (WHO, 2021). Yearly, in the UK, it causes 36,000 premature deaths (Government's Committee on Medical Effects of Air-Pollutants COMEAP) and costs £20-billion.
 
-Airpot Project is aimed at air pollution concentration prediction.
+Although, pandemic-induced lockdowns caused largest drop in annual global emissions in 2020, lockdown easing has seen a surge to more than pre-pandemic levels. Despite various actions taken by many governments (e.g. enacting clean-air-zones), poor air quality is projected to continue into 2050 (OECD,2019).
 
-The air pollution concentration is sourced from IoT emission sensors installed across different locations in the UK.
+Scientists recommend dodging approach to pollution-vulnerable people like those with respiratory illness (e.g. asthma, bronchitis, etc.) who develop complications and sometimes die due to exposure to high pollution levels (European Public Health Alliance, 2020). Pollution levels can vary widely between many locations within a city/town and will vary from time to time for a location. Current solutions provide city-wide information and are thus ineffective for dodging approach as a vulnerable person is unable to decipher which location(s) within a city/town to use or avoid if they were out on walk/journey/exercise etc. A solution with pollution-data on a much smaller scale, e.g. at postcode-units level, can solve this problem. However, the UK does not, and probably cannot, have monitoring equipment for each of its approximately 1.7 million postcode-units (a city/town can have 100s of postcode-units). Nonetheless, the thousands of emission-sensors operational across UK (BBC, 2019) provide enough data to develop models for all postcode-units if the right tools are deployed.
 
-As discovered from the literatures, most pollutants particularly NOx are from vehicle exhausts, making traffic information a major feature to be looked into.
+This project therefore aims to develop a system that can provide pollution data to users using machine learning algorithms, GIS data, telematics, weather data and big data analytics. The system will be available via web and mobile app and will include
 
-Aside the traffic, other data have been discovered to be influential, example is the weather data, and environmental data.
+The projects are in different batches and versions.
 
-So, the project data used four kinds of data which was all merge together using co-ordinates (longitude and latitudes) as key.
-We collect air pollution concentration from a sensor installed in a particular position, then using the co-ordinate of the place the sensor was installed,
-we collect weather, traffic and environmental data for same or close to the point the sensor was installed.
+V1. LiveTap
 
-
-This same process was done for all publicly available sensors installed within UK.
+V2. Air-PoT, led by a consortium of experienced experts in business, technology and air pollution science, aims to harness the advanced UK infrastructure of thousands of IoT sensors to via a centralised and harmonised platform to use by used by sufferers and data-led organisations alike.
 
 We then implmented different ML and AI models to predict/forecast the different Pollution concentration.
+http://www.airpot-aq.com
 
-See some of our already published works.
+v3. PASS, this project therefore aims to develop a system that can provide postcode-units-specific pollution data to users using machine learning algorithms, GIS data, telematics, weather data and big data analytics. The system will be available via web and mobile app and will include
 
+**Live-Pass:** will provide live pollution data for each UK postcode-unit to support users in deciding for or against an outdoor activity (e.g. journey, outdoor exercise etc.) in a specific location/postcode-unit. It will suggest cleaner alternatives.
 
+**Future-Pass:** will provide hourly 7-day future pollution forecast for each UK postcode-units to support planning/scheduling future outdoor events for a cleaner location/time.
+
+**City/town analytics dashboard (CAD):** provide data and insights on the different levels of pollution for all the postcode-units within a city/town (targeted at local authorities)
+
+View some of Our publications.
 
 - https://www.emerald.com/insight/content/doi/10.1108/ACI-04-2021-0092/full/html
 
@@ -32,27 +36,6 @@ See some of our already published works.
 
 - https://researchprofiles.herts.ac.uk/portal/en/publications/air-pollution-prediction-using-machine-learning--a-review(66a033c0-3a9a-41b8-9887-cfa2cf048cdf).html
 
-
-# PASS 
-(Pollution Avoidance Support System), the free app will give vulnerable people, including those suffering from respiratory conditions like asthma, the information they need to make informed choices about where they travel to avoid high exposure to air pollutants.
-
-The PASS app will work by first finding out the air quality level of the larger geographical area, provided by existing air quality sensors. Using artificial intelligence, it will then analyse the features of each individual postcode area (including geographic information system data such as building height, as well as traffic and weather data) to create a mathematical model that will accurately predict air quality for those individual postcodes.
-
-App users will be presented with a map segmented by postcode area and colour-coded based on the Air Quality Scale, with green indicating low levels of pollution and dark purple meaning very high.
-
-Users will also be able to delve further into the data and, for example, look at the levels of nitrogen dioxide and what the acceptable levels should be. Nitrogen dioxide can inflame the airways in our lungs and overtime affect how well our lungs work.
-
-According to Asthma + Lung UK, approximately 1 in 5 people in the UK have a history of asthma or another longstanding respiratory illness. Not only can air pollution make these conditions worse, but it can also contribute to the development of some lung conditions, heart disease and autoimmune diseases.
-
-High levels of air pollution are prominent in areas with a lot of built infrastructure and traffic, such as cities and their suburbs. In April, the Central Office of Public Interest released new data showing that 70% of UK households are in areas that breach three World Health Organisation guidelines on dangerous air pollutants.
-
-The project is being led by Professor Hafiz Alaka, Director of the Big Data Tech and Innovation Lab at the University of Hertfordshire. He said: “Air pollution data often covers a broad geographical area, which is useful if you are planning to travel long distances, but not so useful if you just want to pop down to the shop. This can make it difficult for certain groups, including older people with respiratory conditions, to make informed choices about where they travel to keep themselves safe.
-
-“PASS will be the first app of its kind to give users information about air pollution in their immediate, local area, using the power of artificial intelligence and big data. Having this information in the palm of your hand could have a huge impact on how you live your day-to-day life, and it could also help lower the prevalence of conditions made worse or trigged by air pollution.”
-
-Several partners are involved in the project, including Birmingham City Council, Leeds Beckett University, Nazir Associates, and Rasuta.
-
-The app will be piloted initially in Birmingham in March 2023, before being made available across other parts of the country shortly after.
 
 Other works are under review.
 Please do let me know if you wish to contribute.
