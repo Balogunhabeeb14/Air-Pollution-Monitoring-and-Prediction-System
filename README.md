@@ -15,18 +15,11 @@ V2. Air-PoT, led by a consortium of experienced experts in business, technology 
 We then implmented different ML and AI models to predict/forecast the different Pollution concentration.
 http://www.airpot-aq.com
 
-v3. PASS, this project therefore aims to develop a system that can provide postcode-units-specific pollution data to users using machine learning algorithms, GIS data, telematics, weather data and big data analytics. The system will be available via web and mobile app and will include
-
-**Live-Pass:** will provide live pollution data for each UK postcode-unit to support users in deciding for or against an outdoor activity (e.g. journey, outdoor exercise etc.) in a specific location/postcode-unit. It will suggest cleaner alternatives.
-
-**Future-Pass:** will provide hourly 7-day future pollution forecast for each UK postcode-units to support planning/scheduling future outdoor events for a cleaner location/time.
-
-**City/town analytics dashboard (CAD):** provide data and insights on the different levels of pollution for all the postcode-units within a city/town (targeted at local authorities)
+v3. PASS, this project therefore aims to develop a system that can provide postcode-units-specific pollution data to users using machine learning algorithms, GIS data, telematics, weather data and big data analytics. The system will be available via web and mobile app and will include Live, Future and city/town analytics dashboard. 
 
 View some of Our publications.
 
 - https://www.emerald.com/insight/content/doi/10.1108/ACI-04-2021-0092/full/html
-
 
 - https://www.emerald.com/insight/content/doi/10.1108/JEDT-10-2021-0554/full/html
 
@@ -38,5 +31,6 @@ View some of Our publications.
 
 
 Other works are under review.
-Please do let me know if you wish to contribute.
+Please do let us know if you wish to contribute
+send an email to dtilabuh@gmail.com
 
