@@ -33,7 +33,3 @@ To learn more about our work, you can refer to the following publications:
 [Sulaimon, I., & Alaka, H. (2021). Air Pollution Prediction using Machine Learning – A Review. In EDMIC 2021 CONFERENCE PROCEEDINGS ENVIRONMENTAL DESIGN & MANAGEMENT INTERNATIONAL CONFERENCE: Confluence of Theory and Practice in the Built Environment: Beyond Theory into Practice Obafemi Awolowo University, Ile-Ife](https://researchprofiles.herts.ac.uk/portal/en/publications/air-pollution-prediction-using-machine-learning--a-review(66a033c0-3a9a-41b8-9887-cfa2cf048cdf).html)
 
 Other works are currently under review. If you are interested in contributing or have any inquiries, please send an email to dtilabuh@gmail.com.
-
-you can check out our sample data
-[sample_data](https://github.com/Balogunhabeeb14/AirPollution-Prediction-Using-AI-and-IoT/tree/main/sample_data)
-
