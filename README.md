@@ -34,4 +34,6 @@ To learn more about our work, you can refer to the following publications:
 
 Other works are currently under review. If you are interested in contributing or have any inquiries, please send an email to dtilabuh@gmail.com.
 
+you can check out our sample data
+[sample_data](https://github.com/Balogunhabeeb14/AirPollution-Prediction-Using-AI-and-IoT/tree/main/sample_data)
 
