@@ -1,29 +1,30 @@
+## Data Brief
 
-The Data used for this project has undergone several preprocessing and thus, if you want a comprehensive data please reach out to me at h.balogun@herts.ac.uk.
+The Data used for this project has undergone several preprocessing steps, so if you want comprehensive data, please reach out to me at h.balogun@herts.ac.uk.
 
-Meanwhile, for the columns we have which is similar through out the files. 
+Meanwhile, for the columns we have that are similar throughout the files,
 
-There is the datetime/date stamp which represent the date and time the data was collected through the sensor. Mind you the time has been matched with the weather, traffic and the environmental time. 
+There is the datetime/date stamp which represents the date and time the data was collected through the sensor. Mind you the time has been matched with the weather, traffic and the environmental time. 
 
-The zid is the unique ID for the sensors, like i mentioned earlier this is the processed data, we have over 350 sensors in all, but just 14 reflects in this.
+The id is the unique ID for the sensors, like I mentioned earlier this is the processed data, we have over 350 sensors in all, but just 14 reflect in this.
 
-The Hour represent the hour of the day in 24 the data was collected
+The Hour represents the hour of the day in 24 the data was collected
 
-weekdays represent days of the week, 0 represent sunday, 1 represent monday and so on.
+weekdays represent days of the week, 0 represents Sunday, 1 represents Monday and so on.
 
-Holiday represent wether there is an holiday or not, 0 means no holiday and 1 means there is holiday. this was intuitively proven as we know there is usually a decline in traffic due to holiday.
+The holiday represents whether there is a holiday or not, 0 means no holiday and 1 means there is a holiday. this was intuitively proven as we know there is usually a decline in traffic due to holidays.
 
-Humidty, Ambient Pressure, Temperature are weather informations collected around the sensors
+Humidity, Ambient Pressure, and Temperature are weather information collected around the sensors
 
-Speed represent the average speed of all vehicles around the sensors, this was gotten via Tomtom API.
+Speed represents the average speed of all vehicles around the sensors, this was gotten via Tomtom API.
 
-Green area represent area of the green spaces like the park closest to the sensor.
+Green areas represent areas of the green spaces like the park closest to the sensor.
 
-Road area represent the area of the road closest to the sensor
+Road area represents the area of the road closest to the sensor
 
-Buildings represent the avergae heights of buildings closest to the sensors. This was because dispersions of air caused by buildings which practically influence air pollution.
+Buildings represent the average heights of buildings closest to the sensors. This was because of dispersions of air caused by buildings which practically influence air pollution.
 
-For each file, we have named them after the pollutant of interest, which in most cases represent target, for NO2(1).csv, the NO2 column is expected to be predicted, and same thing applies to other files.
+For each file, we have named them after the pollutant of interest, which in most cases represents a target, for NO2(1).csv, the NO2 column is expected to be predicted, and the same thing applies to other files.
 
-If you still confused, please drop me an email.
+If you are still confused, please drop me an email.
 H.balogun@herts.ac.uk
