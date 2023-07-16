@@ -22,15 +22,15 @@ V3 of the project aims to develop a system that provides postcode-units-specific
 
 To learn more about our work, you can refer to the following publications:
 
-[Publication 1](https://www.emerald.com/insight/content/doi/10.1108/ACI-04-2021-0092/full/html)
+[Balogun, H., Alaka, H. and Egwim, C.N. (2021), "Boruta-grid-search least square support vector machine for NO2 pollution prediction using big data analytics and IoT emission sensors", Applied Computing and Informatics, Vol. ahead-of-print No. ahead-of-print. https://doi.org/10.1108/ACI-04-2021-0092](https://www.emerald.com/insight/content/doi/10.1108/ACI-04-2021-0092/full/html)
 
-[Publication 2](https://www.emerald.com/insight/content/doi/10.1108/JEDT-10-2021-0554/full/html)
+[Sulaimon, I.A., Alaka, H., Olu-Ajayi, R., Ahmad, M., Ajayi, S. and Hye, A. (2022), "Effect of traffic data set on various machine-learning algorithms when forecasting air quality", Journal of Engineering, Design and Technology, Vol. ahead-of-print No. ahead-of-print. https://doi.org/10.1108/JEDT-10-2021-0554](https://www.emerald.com/insight/content/doi/10.1108/JEDT-10-2021-0554/full/html)
 
-[Publication 3](https://researchprofiles.herts.ac.uk/portal/en/publications/an-application-of-machine-learning-with-boruta-feature-selection-to-improve-no2-pollution-prediction(37c7b8e5-061d-4eda-9dd7-50af3f7510f3).html)
+[Balogun, H., & Alaka, H. (2021). An Application Of Machine Learning With Boruta Feature Selection To Improve NO2 Pollution Prediction. In EDMIC 2021 CONFERENCE PROCEEDINGS ENVIRONMENTAL DESIGN & MANAGEMENT INTERNATIONAL CONFERENCE: Confluence of Theory and Practice in the Built Environment: Beyond Theory into Practice Obafemi Awolowo University, Ile-Ife](https://researchprofiles.herts.ac.uk/portal/en/publications/an-application-of-machine-learning-with-boruta-feature-selection-to-improve-no2-pollution-prediction(37c7b8e5-061d-4eda-9dd7-50af3f7510f3).html)
 
-[Publication 4](https://researchprofiles.herts.ac.uk/portal/en/publications/random-forest-feature-selection-for-pm10-pollution-concentration(8f7f5ec8-666d-4154-a587-1d545d3da481).html)
+[Balogun, H., & Alaka, H. (2021). Random Forest Feature Selection for PM10 Pollution Concentration. In EDMIC 2021 CONFERENCE PROCEEDINGS ENVIRONMENTAL DESIGN & MANAGEMENT INTERNATIONAL CONFERENCE: Confluence of Theory and Practice in the Built Environment: Beyond Theory into Practice Obafemi Awolowo University, Ile-Ife](https://researchprofiles.herts.ac.uk/portal/en/publications/random-forest-feature-selection-for-pm10-pollution-concentration(8f7f5ec8-666d-4154-a587-1d545d3da481).html)
 
-[Publication 5](https://researchprofiles.herts.ac.uk/portal/en/publications/air-pollution-prediction-using-machine-learning--a-review(66a033c0-3a9a-41b8-9887-cfa2cf048cdf).html)
+[Sulaimon, I., & Alaka, H. (2021). Air Pollution Prediction using Machine Learning – A Review. In EDMIC 2021 CONFERENCE PROCEEDINGS ENVIRONMENTAL DESIGN & MANAGEMENT INTERNATIONAL CONFERENCE: Confluence of Theory and Practice in the Built Environment: Beyond Theory into Practice Obafemi Awolowo University, Ile-Ife](https://researchprofiles.herts.ac.uk/portal/en/publications/air-pollution-prediction-using-machine-learning--a-review(66a033c0-3a9a-41b8-9887-cfa2cf048cdf).html)
 
 Other works are currently under review. If you are interested in contributing or have any inquiries, please send an email to dtilabuh@gmail.com.
 
