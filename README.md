@@ -23,7 +23,7 @@ V3 of the project aims to develop a system that provides postcode-units-specific
 To learn more about our work, you can refer to the following publications:
 
 ## 2023:
-Christian Nnaemeka Egwim, Hafiz Alaka, Youlu Pan, Habeeb Balogun, Saheed Ajayi, Abdul Hye, Oluwapelumi Oluwaseun Egunjobi (2023), "Ensemble of ensembles for fine particulate matter pollution prediction using big data analytics and IoT emission sensors", Journal of Engineering, Design and Technology, Vol. ahead-of-print No. ahead-of-print. https://doi.org/10.1108/JEDT-07-2022-0379
+Egwim, C.N., Alaka, H., Pan, Y., Balogun, H., Ajayi, S., Hye, A. and Egunjobi, O.O. (2023), "Ensemble of ensembles for fine particulate matter pollution prediction using big data analytics and IoT emission sensors", Journal of Engineering, Design and Technology, Vol. ahead-of-print No. ahead-of-print. https://doi.org/10.1108/JEDT-07-2022-0379
 
 ## 2022:
 Sulaimon, I.A., Alaka, H., Olu-Ajayi, R., Ahmad, M., Ajayi, S. and Hye, A. (2022), "Effect of traffic data set on various machine-learning algorithms when forecasting air quality", Journal of Engineering, Design and Technology, Vol. ahead-of-print No. ahead-of-print. https://doi.org/10.1108/JEDT-10-2021-0554
